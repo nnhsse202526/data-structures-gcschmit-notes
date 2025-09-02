@@ -53,6 +53,29 @@ public class WordAnalysis
     public static Set<String> readWords(String filename)
         throws FileNotFoundException
     {
-        return null;
+        /*
+         * The implementation of the set doesn't matter; so,
+         *  store the reference in a variable of type Set.
+         * 
+         * We don't need to iterate through the set in sorted order;
+         *  so, create a HashSet because it is faster.
+         */
+        Set<String> words = new HashSet<>();
+
+        Scanner in = new Scanner(new File(filename), "UTF-8");
+
+        // use any character other than a-z or A-Z as delimiters
+        in.useDelimiter("[^a-zA-Z]+");
+
+        while(in.hasNext())
+        {
+            /*
+             * adding duplicates to a set is ignored
+             *  (so is removing elements that don't exist)
+             */
+            words.add(in.next().toLowerCase());
+        }
+
+        return words;
     }
 }
