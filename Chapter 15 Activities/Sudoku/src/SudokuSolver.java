@@ -35,20 +35,27 @@ public class SudokuSolver {
             System.out.println("Cannot open: " + fileName);
         }
 
-        // create the list of sets for each row (this.rows)
-        // need a refresher? Refer to the APCSA ArrayListNotes class:
+        // create the list of sets for each row (this.rows) and populate the list with new sets
+        // need a refresher? Refer to the APCSA ArrayList notes:
         //  https://github.com/nnhsapcsa202425/media-computation-class-notes/blob/5e45fb56ac50aa04df09bc636378be00f2084924/ArrayListNotes.java#L39
         // ...
 
-        // create the list of sets for each col (this.cols)
+        // create the list of sets for each col (this.cols) and populate the list with new sets
         // ...
 
-        // create the list of sets for each square (this.squares)
+        // create the list of sets for each square (this.squares) and populate the list with new sets
         /* the squares are added to the list row-by-row:
             0 1 2
             3 4 5
             6 7 8
          */
+        // ...
+
+        // iterate through all of the elements in the grid 2D array;
+        //  add each element to the corresponding set in this.rows, this.cols,
+        //      and this.squares
+        //  need a refresher? Refer to the APCSA 2D Array notes:
+        //  https://github.com/nnhsapcsa202425/arrays-notes-mrcallaghan/blob/period8/MedalCount.java
         // ...
 
         // create a hash set for [1..9] (this.nums)
@@ -159,11 +166,13 @@ public class SudokuSolver {
 
         SudokuSolver solver = new SudokuSolver(fileName);
         System.out.println(solver);
-        if (solver.solve()) {
-            System.out.println("Solved!");
-            System.out.println(solver);
-        } else {
-            System.out.println("Unsolveable...");
-        }
+        // uncomment after checking the solver object is constructed completely
+        
+        // if (solver.solve()) {
+        //     System.out.println("Solved!");
+        //     System.out.println(solver);
+        // } else {
+        //     System.out.println("Unsolveable...");
+        // }
     }
 }
