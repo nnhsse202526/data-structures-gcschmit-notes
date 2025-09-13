@@ -18,7 +18,7 @@ public class StringLengthMap2
         {
 
             // Create your map here
-            
+            Map<Integer, String> words = new TreeMap<>();
 
             while (in.hasNext())
             {
@@ -34,7 +34,7 @@ public class StringLengthMap2
                  * String newValue = word;
                  * String str;
                  * 
-                 * if (oldValue != null) {
+                 * if (oldValue == null) {
                  * str = newValue;
                  * } else {
                  * str = oldValue + ", " + newValue;
@@ -74,7 +74,7 @@ public class StringLengthMap2
                  * 
                  */
                  
-                 
+                 // words.merge(len, word, StringLengthMap2::mergeWords);
                  
                  
                  /*
@@ -89,6 +89,7 @@ public class StringLengthMap2
                  * implied.
                  */
                  
+                 words.merge(len, word, (oldValue, newValue) -> oldValue.concat(", " + newValue));
                  
                  
                  
@@ -96,11 +97,19 @@ public class StringLengthMap2
                  * If the definition spans multiple statements, curly brackets are
                  *  required and the value must be explicitly returned.
                  */
+                words.merge(len, word, (oldValue, newValue) -> {
+                    return oldValue.concat(", " + newValue);
+                });
 
             }
 
             // Print the strings, in increasing order of their length
             // Use this format: 1: i, a, i
+            for(Integer len : words.keySet())
+            {
+                System.out.println(len + ": " + words.get(len));
+            }
+
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);
@@ -116,8 +125,10 @@ public class StringLengthMap2
      *                 the map
      * @return the "merged" value to replace the value currently in the map
      */
-     
-     
+     static String mergeWords(String oldValue, String newValue)
+     {
+        return oldValue.concat(", " + newValue);
+     }
      
 
     public static String clean(String s)
