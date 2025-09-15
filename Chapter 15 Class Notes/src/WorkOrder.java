@@ -22,6 +22,7 @@ public class WorkOrder implements Comparable
       return "priority=" + priority + ", description=" + description;
    }
 
+   @Override
    public int compareTo(Object otherObject)
    {
       WorkOrder other = (WorkOrder) otherObject;
