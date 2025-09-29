@@ -5,11 +5,11 @@ public class ListDemo
 {
     public static void main(String[] args)
     {
-        // LinkedList staff = new LinkedList();
-        // staff.addFirst("Tom");
-        // staff.addFirst("Romeo");
-        // staff.addFirst("Harry");
-        // staff.addFirst("Diana");
+        LinkedList staff = new LinkedList();
+        staff.addFirst("Tom");
+        staff.addFirst("Romeo");
+        staff.addFirst("Harry");
+        staff.addFirst("Diana");
 
         // ListIterator iterator = staff.listIterator();   // |DHRT
         // iterator.next();                                // D|HRT
