@@ -168,29 +168,43 @@ public class LinkedList
             isAfterNext = false;                // #4
         }
 
-
-
-
-
-
         /**
             Removes the last traversed element. This method may
             only be called after a call to the next() method.
         */
+        public void remove()
+        {
+            if(!isAfterNext)
+            {
+                throw new IllegalStateException();
+            }
 
+            if(position == first)
+            {
+                removeFirst();
+                position = null;
+            }
+            else
+            {
+                previous.next = position.next;      // #1
+                position = previous;                // #2
+            }
 
-
-
-
-
+            isAfterNext = false;                    // #3
+        }
 
         /**
             Sets the last traversed element to a different value.
             @param element the element to set
         */
+        public void set(Object element)
+        {
+            if(!isAfterNext)
+            {
+                throw new IllegalStateException();
+            }
 
-
-
-
+            position.data = element;
+        }
     }//LinkedListIterator
 }//LinkedList
